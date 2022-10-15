@@ -1,7 +1,6 @@
 //el psy congroo
-
-
-//#include <Stepper.h>
+// Look for all "REPLACEME" before uploading the code.
+#include <Stepper.h>
 #include <ESP8266WiFi.h>
 #include <ArduinoOTA.h>
 #include <PubSubClient.h>
@@ -11,8 +10,8 @@
 //#include <DallasTemperature.h>
 
 // wifi
-const char* ssid = "REPLACEME"; //wifi bilgisi
-const char* password = "REPLACEME";
+const char* ssid = "XXXXXX"; //wifi bilgisi
+const char* password = "XXXXX";
 WiFiClient espClient;
 
 // wifi UDP for NTP, :)
@@ -25,15 +24,15 @@ NTPClient timeClient(ntpUDP, NTP_ADDRESS, NTP_OFFSET, NTP_INTERVAL);
 
 
 // OTA
-#define SENSORNAME "REPLACEME" //cihazin adi
-#define OTApassword "REPLACEME" //OTA baglanti sifresi
-int OTAport = REPLACEME;
+#define SENSORNAME "Vega" //cihazin adi
+#define OTApassword "246" //OTA baglanti sifresi
+int OTAport = 8266;
 
 // MQTT
-const char* mqtt_server = "REPLACEME"; // MQTT IP adresi
+const char* mqtt_server = "XXXXXXXXXX"; // MQTT IP adresi
 const char* mqtt_username = ""; //
 const char* mqtt_password = "";
-const int mqtt_port = REPLACEME; //Port
+const int mqtt_port = XXXX; //Port
 PubSubClient client(espClient);
 // MQTT TOPICS  
 const char* lastfed_topic = "home/catfeeder/lastfed"; // UTF zaman
@@ -103,7 +102,7 @@ void setup_wifi() {
   
   WiFi.mode(WIFI_STA);
   WiFi.setSleepMode(WIFI_NONE_SLEEP); // bit more power hungry, but seems stable.
-  WiFi.hostname("VegaMama"); // This will (probably) happear on your router somewhere.
+  WiFi.hostname("VegaMamaVersion2"); // This will (probably) happear on your router somewhere.
   WiFi.begin(ssid, password);
 
   while (WiFi.status() != WL_CONNECTED) {
